@@ -51,7 +51,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
-	RatemyProf(sender);
+	RatemyProf(sender,text.substring(0,200));
 	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }
@@ -75,10 +75,6 @@ function sendGenericMessage(sender) {
                         "type": "web_url",
                         "url": "http://www.ratemyprofessors.com/",
                         "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Paul Lynch",
-                        "payload": "Paul Lynch",
                     }],
                 }, {
                     "title": "Second card",
@@ -86,10 +82,20 @@ function sendGenericMessage(sender) {
                     "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
+                        "title": "Paul Lynch",
+                        "payload": "Paul Lynch",
                     }],
-                }]
+                },
+                {    "title": "Third card",
+                    "subtitle": "Element #2 of an hscroll",
+                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "Paul Lynch",
+                        "payload": "Paul Lynch",
+                    }],
+					
+				}]
             }
         }
     }

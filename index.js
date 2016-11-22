@@ -44,15 +44,15 @@ for (let i = 0; i < messaging_events.length; i++) {
 		continue
 	}
 	if (text === 'rate'){
-		RatemyProf(sender)
+		RatemyProf(sender,text.substring(0,200));
 		continue
 	}
-	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
 	RatemyProf(sender);
-	sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }
 }
@@ -131,7 +131,7 @@ function sendTextMessage(sender, text) {
 
 
 
-function RatemyProf(sender){
+function RatemyProf(sender,text){
 	var rmp = require("rmp-api");
 	 
 	var callback = function(professor) {
@@ -150,7 +150,7 @@ function RatemyProf(sender){
 	  sendTextMessage(sender ,"First comment: " + professor.comments[0]);
 	};
 	 
-	rmp.get("Paul Lynch", callback);
+	rmp.get(text, callback);
 
 }
 

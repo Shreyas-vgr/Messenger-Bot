@@ -65,18 +65,27 @@ function sendGenericMessage(sender) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic",
+                "template_type": "RateProfessors",
                 "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
+                    "title": "Rate your professors",
+                    "subtitle": "Select the professor you want to rate",
                     "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.messenger.com",
+                        "url": "http://www.ratemyprofessors.com/",
                         "title": "web url"
                     }, {
                         "type": "postback",
-                        "title": "Postback",
+                        "title": "Paul Lynch",
+                        "payload": "Payload for first element in a generic bubble",
+                    },{
+                        "type": "postback",
+                        "title": "Saty",
+                        "payload": "Payload for first element in a generic bubble",
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Bill Cheng",
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {

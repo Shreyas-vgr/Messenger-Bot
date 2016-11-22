@@ -99,6 +99,7 @@ function sendTextMessage(sender, text) {
     })
 }
 
+
 app.post('/webhook/', function (req, res) {
 let messaging_events = req.body.entry[0].messaging
 for (let i = 0; i < messaging_events.length; i++) {
@@ -108,6 +109,10 @@ for (let i = 0; i < messaging_events.length; i++) {
 	let text = event.message.text
 	if (text === 'Generic') {
 		sendGenericMessage(sender)
+		continue
+	}
+	if (text === 'rate'){
+		RatemyProf(sender)
 		continue
 	}
 	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
@@ -124,5 +129,26 @@ res.sendStatus(200)
 const token = "EAAZAg4Odbe0UBAHMLswo1CjKzizs9hubrB4lZAstJ1e6fwkxN4TgTSN7SzBxfJ4a00AMvfMhfeCTRm5gOdm6Ex3SZAvd33Yvd7CMBl07bQI0H2MrGye9dbMWtMgfZAcvNphye2HV4vD2tLgjqq2jhRhoVIiSzcczdOvjnsvILwZDZD"
 
 
+function RatemyProf(sender){
+	var rmp = require("rmp-api");
+	 
+	var callback = function(professor) {
+	  if (professor === null) {
+		console.log("No professor found.");
+		return;
+	  }
+	  sendTextMessage(sender ,"Name: " + professor.fname + " " + professor.lname);
+	  sendTextMessage(sender ,"University: "+ professor.university);
+	  sendTextMessage(sender ,"Quality: " + professor.quality);
+	  sendTextMessage(sender ,"Easiness: " + professor.easiness);
+	  sendTextMessage(sender ,"Helpfulness: " + professor.help);
+	  sendTextMessage(sender ,"Average Grade: " + professor.grade);
+	  sendTextMessage(sender ,"Chili: " + professor.chili);
+	  sendTextMessage(sender ,"URL: " + professor.url);
+	  sendTextMessage(sender ,"First comment: " + professor.comments[0]);
+	};
+	 
+	rmp.get("Paul Lynch", callback);
 
+}
 

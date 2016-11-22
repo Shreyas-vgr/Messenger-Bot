@@ -18,6 +18,7 @@
   "dependencies": {
     "express": "~4.14.0",
     "body-parser": "~1.15.2",
-    "request": "~2.79.0"
+    "request": "~2.79.0",
+    "rmp-api": "~1.2.5"
   }
 }

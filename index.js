@@ -44,7 +44,7 @@ for (let i = 0; i < messaging_events.length; i++) {
 		continue
 	}
 	if (text === 'rate'){
-		RatemyProf(sender,text.substring(0,200));
+		RatemyProf(sender,"Paul Lynch");
 		continue
 	}
 	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
@@ -75,6 +75,10 @@ function sendGenericMessage(sender) {
                         "type": "web_url",
                         "url": "http://www.ratemyprofessors.com/",
                         "title": "web url"
+                    }, {
+                        "type": "postback",
+                        "title": "Paul Lynch",
+                        "payload": "Paul Lynch",
                     }],
                 }, {
                     "title": "Second card",
@@ -82,20 +86,10 @@ function sendGenericMessage(sender) {
                     "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
                     "buttons": [{
                         "type": "postback",
-                        "title": "Paul Lynch",
-                        "payload": "Paul Lynch",
+                        "title": "Bill Cheng"
+                        "payload": "Bill Cheng",
                     }],
-                },
-                {    "title": "Third card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Paul Lynch",
-                        "payload": "Paul Lynch",
-                    }],
-					
-				}]
+                }]
             }
         }
     }

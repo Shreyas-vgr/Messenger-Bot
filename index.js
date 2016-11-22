@@ -51,7 +51,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
-	RatemyProf(text.substring(0,200));
+	RatemyProf(sender);
 	sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }
@@ -70,7 +70,7 @@ function sendGenericMessage(sender) {
                 "elements": [{
                     "title": "Rate your professors",
                     "subtitle": "Select the professor you want to rate",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "image_url": "./rmyprof.png",
                     "buttons": [{
                         "type": "web_url",
                         "url": "http://www.ratemyprofessors.com/",

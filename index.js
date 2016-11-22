@@ -43,16 +43,16 @@ for (let i = 0; i < messaging_events.length; i++) {
 		sendGenericMessage(sender)
 		continue
 	}
-	if (text === 'rate'){
-		RatemyProf(sender,"Paul Lynch");
+	else{
+		RatemyProf(sender,text);
 		continue
 	}
 	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
   }
   if (event.postback) {
 	let text = event.postback
-	RatemyProf(sender,text.payload);
-	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+	//RatemyProf(sender,text.payload);
+	sendTextMessage(sender, "Postback received: "+text.payload)
 	continue
   }
 }
@@ -77,26 +77,10 @@ function sendGenericMessage(sender) {
                         "title": "web url"
                     }, {
                         "type": "postback",
-                        "title": "Paul Lynch",
-                        "payload": "Paul Lynch",
+                        "title": "Ratings of professor",
+                        "payload": "Enter the professor name",
                     }],
-                },{
-					"title": "Rate your professors",
-                    "subtitle": "Select the professor you want to rate",
-                    "image_url": "http://www.userlogos.org/files/logos/Karmody/Rate_My_Prof_01.png",                    
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "http://www.ratemyprofessors.com/",
-                        "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Bill Cheng",
-                        "payload": "Bill Cheng",
-                    }],
-					
-					
-					
-				}]
+                }]
             }
         }
     }

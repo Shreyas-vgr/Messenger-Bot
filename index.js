@@ -31,49 +31,6 @@ app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'))
 })
 
-app.post('/webhook/', function (req, res) {
-let messaging_events = req.body.entry[0].messaging
-for (let i = 0; i < messaging_events.length; i++) {
-  let event = req.body.entry[0].messaging[i]
-  let sender = event.sender.id
-  if (event.message && event.message.text) {
-	let text = event.message.text
-	if (text === 'Generic') {
-		sendGenericMessage(sender)
-		continue
-	}
-	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-  }
-  if (event.postback) {
-	let text = JSON.stringify(event.postback)
-	sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
-	continue
-  }
-}
-res.sendStatus(200)
-})
-
-const token = "EAAZAg4Odbe0UBAHMLswo1CjKzizs9hubrB4lZAstJ1e6fwkxN4TgTSN7SzBxfJ4a00AMvfMhfeCTRm5gOdm6Ex3SZAvd33Yvd7CMBl07bQI0H2MrGye9dbMWtMgfZAcvNphye2HV4vD2tLgjqq2jhRhoVIiSzcczdOvjnsvILwZDZD"
-
-function sendTextMessage(sender, text) {
-    let messageData = { text:text }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
-
 function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
@@ -122,3 +79,50 @@ function sendGenericMessage(sender) {
         }
     })
 }
+
+function sendTextMessage(sender, text) {
+    let messageData = { text:text }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
+
+app.post('/webhook/', function (req, res) {
+let messaging_events = req.body.entry[0].messaging
+for (let i = 0; i < messaging_events.length; i++) {
+  let event = req.body.entry[0].messaging[i]
+  let sender = event.sender.id
+  if (event.message && event.message.text) {
+	let text = event.message.text
+	if (text === 'Generic') {
+		sendGenericMessage(sender)
+		continue
+	}
+	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+  }
+  if (event.postback) {
+	let text = JSON.stringify(event.postback)
+	sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+	continue
+  }
+}
+res.sendStatus(200)
+})
+
+const token = "EAAZAg4Odbe0UBAHMLswo1CjKzizs9hubrB4lZAstJ1e6fwkxN4TgTSN7SzBxfJ4a00AMvfMhfeCTRm5gOdm6Ex3SZAvd33Yvd7CMBl07bQI0H2MrGye9dbMWtMgfZAcvNphye2HV4vD2tLgjqq2jhRhoVIiSzcczdOvjnsvILwZDZD"
+
+
+
+

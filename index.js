@@ -80,7 +80,23 @@ function sendGenericMessage(sender) {
                         "title": "Paul Lynch",
                         "payload": "Paul Lynch",
                     }],
-                }]
+                },{
+					"title": "Rate your professors",
+                    "subtitle": "Select the professor you want to rate",
+                    "image_url": "http://www.userlogos.org/files/logos/Karmody/Rate_My_Prof_01.png",                    
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "http://www.ratemyprofessors.com/",
+                        "title": "web url"
+                    }, {
+                        "type": "postback",
+                        "title": "Bill Cheng",
+                        "payload": "Bill Cheng",
+                    }],
+					
+					
+					
+				}]
             }
         }
     }

@@ -51,7 +51,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
-	RatemyProf(sender,text.payload);
+	RatemyProf(sender,text["payload"]);
 	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }

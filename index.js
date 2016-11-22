@@ -65,7 +65,7 @@ function sendGenericMessage(sender) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "RateProfessors",
+                "template_type": "generic",
                 "elements": [{
                     "title": "Rate your professors",
                     "subtitle": "Select the professor you want to rate",

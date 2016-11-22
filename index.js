@@ -70,7 +70,7 @@ function sendGenericMessage(sender) {
                 "elements": [{
                     "title": "Rate your professors",
                     "subtitle": "Select the professor you want to rate",
-                    "image_url": "./rmyprof.png",
+                    "image_url": "http://www.userlogos.org/files/logos/Karmody/Rate_My_Prof_01.png",                    
                     "buttons": [{
                         "type": "web_url",
                         "url": "http://www.ratemyprofessors.com/",

@@ -39,7 +39,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   let sender = event.sender.id
   if (event.message && event.message.text) {
 	let text = event.message.text
-	if (text === 'Generic') {
+	if (text === 'Shreyas') {
 		sendGenericMessage(sender)
 		continue
 	}
@@ -51,6 +51,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
+	RatemyProf(text.substring(0,200));
 	sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }
@@ -77,7 +78,7 @@ function sendGenericMessage(sender) {
                     }, {
                         "type": "postback",
                         "title": "Paul Lynch",
-                        "payload": "Payload for first element in a generic bubble",
+                        "payload": "Paul Lynch",
                     }],
                 }, {
                     "title": "Second card",

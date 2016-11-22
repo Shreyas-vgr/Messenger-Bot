@@ -50,8 +50,8 @@ for (let i = 0; i < messaging_events.length; i++) {
 	sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
   }
   if (event.postback) {
-	let text = JSON.stringify(event.postback)
-	RatemyProf(sender,text["payload"]);
+	let text = event.postback
+	RatemyProf(sender,text.payload);
 	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }

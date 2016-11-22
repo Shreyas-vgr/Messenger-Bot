@@ -78,15 +78,6 @@ function sendGenericMessage(sender) {
                         "type": "postback",
                         "title": "Paul Lynch",
                         "payload": "Payload for first element in a generic bubble",
-                    },{
-                        "type": "postback",
-                        "title": "Saty",
-                        "payload": "Payload for first element in a generic bubble",
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Bill Cheng",
-                        "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
                     "title": "Second card",

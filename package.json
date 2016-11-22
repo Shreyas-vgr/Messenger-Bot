@@ -1,0 +1,23 @@
+{
+  "name": "Messenger-Bot",
+  "version": "0.0.0",
+  "description": "Initial version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shreyas-vgr/Messenger-Bot.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Shreyas-vgr/Messenger-Bot/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "body-parser": "~1.15.2",
+    "request": "~2.79.0"
+  }
+}

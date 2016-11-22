@@ -51,7 +51,7 @@ for (let i = 0; i < messaging_events.length; i++) {
   }
   if (event.postback) {
 	let text = JSON.stringify(event.postback)
-	RatemyProf(sender,text.substring(0,200));
+	RatemyProf(sender,text);
 	//sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 	continue
   }
@@ -139,6 +139,7 @@ function sendTextMessage(sender, text) {
 
 
 function RatemyProf(sender,text){
+	console.log("SHREYAS text: ",text);
 	var rmp = require("rmp-api");
 	 
 	var callback = function(professor) {

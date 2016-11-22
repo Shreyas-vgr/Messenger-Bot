@@ -80,15 +80,6 @@ function sendGenericMessage(sender) {
                         "title": "Paul Lynch",
                         "payload": "Paul Lynch",
                     }],
-                }, {
-                    "title": "Second card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Bill Cheng"
-                        "payload": "Bill Cheng",
-                    }],
                 }]
             }
         }

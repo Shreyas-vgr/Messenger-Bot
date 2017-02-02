@@ -59,7 +59,7 @@ for (let i = 0; i < messaging_events.length; i++) {
 res.sendStatus(200)
 })
 
-const token = "EAAZAg4Odbe0UBAHMLswo1CjKzizs9hubrB4lZAstJ1e6fwkxN4TgTSN7SzBxfJ4a00AMvfMhfeCTRm5gOdm6Ex3SZAvd33Yvd7CMBl07bQI0H2MrGye9dbMWtMgfZAcvNphye2HV4vD2tLgjqq2jhRhoVIiSzcczdOvjnsvILwZDZD"
+const token = "API_TOKEN"
 
 function sendGenericMessage(sender) {
     let messageData = {
